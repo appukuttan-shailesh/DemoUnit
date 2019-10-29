@@ -147,7 +147,9 @@ class AP_Height(sciunit.Test):
         # print ("observation = {}".format(observation))
         # print ("prediction = {}".format(prediction))
         if isinstance(prediction, type(None)):
-            score = sciunit.scores.InsufficientDataScore(None)
+            # score = sciunit.scores.InsufficientDataScore(None)
+            score = sciunit.scores.ZScore(9999.99)
+            # see: https://github.com/HumanBrainProject/hbp-validation-framework/issues/253
         else:
             score = sciunit.scores.ZScore.compute(observation, prediction)
         return score
@@ -202,7 +204,9 @@ class AP_HalfWidth(sciunit.Test):
         # print ("observation = {}".format(observation))
         # print ("prediction = {}".format(prediction))
         if isinstance(prediction, type(None)):
-            score = sciunit.scores.InsufficientDataScore(None)
+            # score = sciunit.scores.InsufficientDataScore(None)
+            score = sciunit.scores.ZScore(9999.99)
+            # see: https://github.com/HumanBrainProject/hbp-validation-framework/issues/253
         else:
             score = sciunit.scores.ZScore.compute(observation, prediction)
         return score
