@@ -5,7 +5,7 @@ except ImportError:
 
 setup(
     name='DemoUnit',
-    version='0.0.2',
+    version='0.0.3',
     author='Shailesh Appukuttan, Andrew Davison',
     author_email='shailesh.appukuttan@unic.cnrs-gif.fr',
     packages=['DemoUnit',

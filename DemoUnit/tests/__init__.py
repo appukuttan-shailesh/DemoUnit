@@ -55,7 +55,7 @@ class InputResistance(sciunit.Test):
 
     def __init__(self,
                  observation={'mean':None,'std':None},
-                 name="Resting Membrane Potential Test"):
+                 name="Input Resistance Test"):
         self.required_capabilities += (cap.SomaReceivesStepCurrent, cap.SomaProducesMembranePotential)
         sciunit.Test.__init__(self, observation, name)
 
