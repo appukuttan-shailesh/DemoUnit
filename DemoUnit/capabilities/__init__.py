@@ -16,7 +16,8 @@ class SomaReceivesStepCurrent(sciunit.Capability):
 class SomaProducesMembranePotential(sciunit.Capability):
     """Enables recording membrane potential from soma"""
     def get_soma_membrane_potential(self, tstop):
-        """
+        """Run simulation and return voltage time series
+
         Run simulation for time 'tstop' specified in ms,
         and must return a dict of the form:
             [ list1, list2 ]

@@ -1,4 +1,3 @@
-import os
 import efel
 import numpy
 import sciunit
@@ -129,7 +128,7 @@ class AP_Height(sciunit.Test):
         efel.reset()
         stim_start = 10.0   # ms
         stim_dur   = 5.0    # ms
-        stim_amp   = 15.0    # nA
+        stim_amp   = 15.0   # nA
         efel.setDoubleSetting('stimulus_current', stim_amp)
         model.inject_soma_square_current(current={'delay':stim_start,
                                                   'duration':stim_dur,
@@ -186,7 +185,7 @@ class AP_HalfWidth(sciunit.Test):
         efel.reset()
         stim_start = 10.0   # ms
         stim_dur   = 5.0    # ms
-        stim_amp   = 15.0    # nA
+        stim_amp   = 15.0   # nA
         efel.setDoubleSetting('stimulus_current', stim_amp)
         model.inject_soma_square_current(current={'delay':stim_start,
                                                   'duration':stim_dur,
