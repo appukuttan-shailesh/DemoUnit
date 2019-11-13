@@ -3,7 +3,7 @@ import sciunit
 #==============================================================================
 
 class SomaReceivesStepCurrent(sciunit.Capability):
-    """ Enables step current stimulus to soma """
+    """Enables step current stimulus to soma"""
     def inject_soma_square_current(self, current):
         """
         Input current is specified in the form of a dict with keys:
@@ -14,7 +14,7 @@ class SomaReceivesStepCurrent(sciunit.Capability):
         raise NotImplementedError()
 
 class SomaProducesMembranePotential(sciunit.Capability):
-    """ Enables recording membrane potential from soma """
+    """Enables recording membrane potential from soma"""
     def get_soma_membrane_potential(self, tstop):
         """
         Run simulation for time 'tstop' specified in ms,
