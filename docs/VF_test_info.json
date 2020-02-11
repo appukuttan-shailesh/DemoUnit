@@ -1,0 +1,150 @@
+[
+    {
+        "alias": "VF_RestingPotential",
+        "author": [
+            {
+                "family_name": "Appukuttan",
+                "given_name": "Shailesh"
+            }
+        ],
+        "brain_region": "hippocampus",
+        "cell_type": "hippocampus CA1 pyramidal cell",
+        "codes": [
+            {
+                "description": "Commit ID: 9667dd1",
+                "id": "6b9fe4e3-ee89-40dd-83ac-60b6fed50a32",
+                "old_uuid": "ec172877-bad5-48ec-b2c9-b5bc677cccbb",
+                "parameters": null,
+                "path": "DemoUnit.tests.RestingPotential",
+                "repository": "https://github.com/appukuttan-shailesh/DemoUnit/tree/9667dd1f5293f1ac468cae3adca82974a58592ee",
+                "timestamp": "2019-10-29T10:11:44.887303Z",
+                "uri": "https://nexus.humanbrainproject.org/v0/data/modelvalidation/simulation/validationscript/v0.1.0/6b9fe4e3-ee89-40dd-83ac-60b6fed50a32",
+                "version": "1.0"
+            }
+        ],
+        "creation_date": "2019-10-29T10:11:44.882489Z",
+        "data_location": "https://object.cscs.ch/v1/AUTH_c0a333ecf7c045809321ce9d9ecdfdea/VF_paper_demo/obs_data/RestingPotential_data.json",
+        "data_modality": "electrophysiology",
+        "data_type": "Mean, STD",
+        "id": "e29ed663-e323-4948-9aae-b34742d794aa",
+        "name": "Resting Potential",
+        "old_uuid": "0c5e61c2-9da3-4ab9-9c43-2519948f20ce",
+        "protocol": "",
+        "score_type": "Other",
+        "species": "Mus musculus",
+        "status": "in development",
+        "test_type": "single cell activity",
+        "uri": "https://nexus.humanbrainproject.org/v0/data/modelvalidation/simulation/validationtestdefinition/v0.1.0/e29ed663-e323-4948-9aae-b34742d794aa"
+    },
+    {
+        "alias": "VF_InputResistance",
+        "author": [
+            {
+                "family_name": "Appukuttan",
+                "given_name": "Shailesh"
+            }
+        ],
+        "brain_region": "hippocampus",
+        "cell_type": "hippocampus CA1 pyramidal cell",
+        "codes": [
+            {
+                "description": "Commit ID: 9667dd1",
+                "id": "dab188c8-fc57-4c4f-ae74-f6a017c6fc0b",
+                "old_uuid": "7782d9be-0eeb-4cdd-925b-c93f6863149d",
+                "parameters": null,
+                "path": "DemoUnit.tests.InputResistance",
+                "repository": "https://github.com/appukuttan-shailesh/DemoUnit/tree/9667dd1f5293f1ac468cae3adca82974a58592ee",
+                "timestamp": "2019-10-29T10:16:36.975557Z",
+                "uri": "https://nexus.humanbrainproject.org/v0/data/modelvalidation/simulation/validationscript/v0.1.0/dab188c8-fc57-4c4f-ae74-f6a017c6fc0b",
+                "version": "1.0"
+            }
+        ],
+        "creation_date": "2019-10-29T10:16:36.971683Z",
+        "data_location": "https://object.cscs.ch/v1/AUTH_c0a333ecf7c045809321ce9d9ecdfdea/VF_paper_demo/obs_data/InputResistance_data.json",
+        "data_modality": "electrophysiology",
+        "data_type": "Mean, STD",
+        "id": "e5a6e51b-8258-49a9-81c4-96ec21d99920",
+        "name": "Input Resistance",
+        "old_uuid": "06a11972-efc9-425a-94f7-e92f1abd4313",
+        "protocol": "",
+        "score_type": "Other",
+        "species": "Mus musculus",
+        "status": "in development",
+        "test_type": "single cell activity",
+        "uri": "https://nexus.humanbrainproject.org/v0/data/modelvalidation/simulation/validationtestdefinition/v0.1.0/e5a6e51b-8258-49a9-81c4-96ec21d99920"
+    },
+    {
+        "alias": "VF_AP_Height",
+        "author": [
+            {
+                "family_name": "Appukuttan",
+                "given_name": "Shailesh"
+            }
+        ],
+        "brain_region": "hippocampus",
+        "cell_type": "hippocampus CA1 pyramidal cell",
+        "codes": [
+            {
+                "description": "Commit ID: 9667dd1",
+                "id": "bf5938ad-f17c-463b-9807-bce119e0f196",
+                "old_uuid": "f3f4f0f9-a29e-494c-af7e-0c0acfc95fae",
+                "parameters": null,
+                "path": "DemoUnit.tests.AP_Height",
+                "repository": "https://github.com/appukuttan-shailesh/DemoUnit/tree/9667dd1f5293f1ac468cae3adca82974a58592ee",
+                "timestamp": "2019-10-29T10:16:39.879634Z",
+                "uri": "https://nexus.humanbrainproject.org/v0/data/modelvalidation/simulation/validationscript/v0.1.0/bf5938ad-f17c-463b-9807-bce119e0f196",
+                "version": "1.0"
+            }
+        ],
+        "creation_date": "2019-10-29T10:16:39.875029Z",
+        "data_location": "https://object.cscs.ch/v1/AUTH_c0a333ecf7c045809321ce9d9ecdfdea/VF_paper_demo/obs_data/AP_Height_data.json",
+        "data_modality": "electrophysiology",
+        "data_type": "Mean, STD",
+        "id": "304d21d9-5f10-4f47-8382-02e9d6fbf797",
+        "name": "AP Height",
+        "old_uuid": "e8122145-0bcd-4078-b4e5-056a6f575bcf",
+        "protocol": "",
+        "score_type": "Other",
+        "species": "Mus musculus",
+        "status": "in development",
+        "test_type": "single cell activity",
+        "uri": "https://nexus.humanbrainproject.org/v0/data/modelvalidation/simulation/validationtestdefinition/v0.1.0/304d21d9-5f10-4f47-8382-02e9d6fbf797"
+    },
+    {
+        "alias": "VF_AP_HalfWidth",
+        "author": [
+            {
+                "family_name": "Appukuttan",
+                "given_name": "Shailesh"
+            }
+        ],
+        "brain_region": "hippocampus",
+        "cell_type": "hippocampus CA1 pyramidal cell",
+        "codes": [
+            {
+                "description": "Commit ID: 9667dd1",
+                "id": "94b9e95b-824a-4026-a59d-6f252da6c9ff",
+                "old_uuid": "6aa2bb3c-715d-488b-a41e-60c6f2f472df",
+                "parameters": null,
+                "path": "DemoUnit.tests.AP_HalfWidth",
+                "repository": "https://github.com/appukuttan-shailesh/DemoUnit/tree/9667dd1f5293f1ac468cae3adca82974a58592ee",
+                "timestamp": "2019-10-29T10:16:42.383534Z",
+                "uri": "https://nexus.humanbrainproject.org/v0/data/modelvalidation/simulation/validationscript/v0.1.0/94b9e95b-824a-4026-a59d-6f252da6c9ff",
+                "version": "1.0"
+            }
+        ],
+        "creation_date": "2019-10-29T10:16:42.379608Z",
+        "data_location": "https://object.cscs.ch/v1/AUTH_c0a333ecf7c045809321ce9d9ecdfdea/VF_paper_demo/obs_data/AP_HalfWidth_data.json",
+        "data_modality": "electrophysiology",
+        "data_type": "Mean, STD",
+        "id": "f48acb66-1d65-4997-bc94-13edb03bdd8d",
+        "name": "AP Half-Width",
+        "old_uuid": "6bc55a6e-23fd-425a-abd3-ae52cb60ed53",
+        "protocol": "",
+        "score_type": "Other",
+        "species": "Mus musculus",
+        "status": "in development",
+        "test_type": "single cell activity",
+        "uri": "https://nexus.humanbrainproject.org/v0/data/modelvalidation/simulation/validationtestdefinition/v0.1.0/f48acb66-1d65-4997-bc94-13edb03bdd8d"
+    }
+]

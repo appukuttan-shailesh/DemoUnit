@@ -28,14 +28,23 @@ sys.path.insert(0, os.path.abspath('../..'))
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+import sphinx_automodapi
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.doctest',
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.viewcode',
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',
+    'sphinx_automodapi.automodapi'
 ]
+
+autodoc_default_options = {
+    'imported-members':True
+}
+
+autosummary_generate = True
+numpydoc_show_class_members = False
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -55,7 +64,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'DemoUnit'
-copyright = u'2019, Shailesh Appukuttan'
+copyright = u'2020, Shailesh Appukuttan'
 author = u'Shailesh Appukuttan'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -101,6 +110,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # unit titles (such as .. function::).
 #
 # add_module_names = True
+add_module_names = False
 
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
@@ -181,6 +191,7 @@ html_theme = 'nature'
 # Custom sidebar templates, maps document names to template names.
 #
 # html_sidebars = {}
+html_sidebars = { '**': ['globaltoc.html', 'sourcelink.html', 'searchbox.html'] } # remove next/previous links on sidebar
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
@@ -344,3 +355,57 @@ texinfo_documents = [
 # texinfo_no_detailmenu = False
 
 autodoc_member_order = 'bysource'
+
+html_css_files = [
+    'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css',
+]
+
+# ----------------------------------------------------------------------------
+
+def rstjinja(app, docname, source):
+    """
+    Render our pages as a jinja template for fancy templating goodness.
+    """
+    # Make sure we're outputting HTML
+    if app.builder.format != 'html':
+        return
+    src = source[0]
+    rendered = app.builder.templates.render_string(
+        src, app.config.html_context
+    )
+    source[0] = rendered
+
+def setup(app):
+    app.connect("source-read", rstjinja)
+
+import inspect, importlib, sciunit
+package_import_name = "DemoUnit"
+
+tests_module = "{}.tests".format(package_import_name)
+module = importlib.import_module(tests_module)
+test_classes = [x[0] for x in inspect.getmembers(module,
+                    lambda member: inspect.isclass(member)
+                                    and not(issubclass(member, sciunit.Test)
+                                            and (tests_module in member.__module__)))]
+
+capabilities_module = "{}.capabilities".format(package_import_name)
+module = importlib.import_module(capabilities_module)
+capability_classes = [x[0] for x in inspect.getmembers(module,
+                    lambda member: inspect.isclass(member)
+                                    and not(issubclass(member, sciunit.Capability)
+                                            and (capabilities_module in member.__module__)))]
+
+import json
+test_json = {}
+print(os.getcwd())
+if os.path.isfile("VF_test_info.json"):
+    with open("VF_test_info.json", "r") as f:
+        test_json = json.load(f)
+
+html_context = {
+    'test_classes'       : test_classes,
+    'capability_classes' : capability_classes,
+    'test_json'          : test_json
+}
+
+# ----------------------------------------------------------------------------

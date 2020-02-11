@@ -7,23 +7,20 @@
 Welcome to DemoUnit's documentation
 =======================================================
 
+A SciUnit library for data-driven testing of electrophysiological features extracted from computational models.
+
+Contents
+========
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :numbered:
+   :maxdepth: 1
 
-.. automodule:: DemoUnit
-
-
-Validation Tests
-================
-.. automodule:: DemoUnit.tests
-   :members:
-
-Test Capabilities
-=================
-.. automodule:: DemoUnit.capabilities
-   :members:
-
+   {% if test_json|length != 0 %}
+   page_testLibrary
+   {% endif %}
+   page_tests
+   page_capabilities
+   page_acknowledgement
 
 
 Indices and tables
