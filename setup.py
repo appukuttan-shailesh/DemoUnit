@@ -14,5 +14,6 @@ setup(
     url='https://github.com/appukuttan-shailesh/DemoUnit',
     keywords = ['electrophysiology', 'electrical', 'testing', 'validation framework'],
     license='MIT',
-    description='A SciUnit library for data-driven testing of neurons.'
+    description='A SciUnit library for data-driven testing of neurons.',
+    install_requires=['sciunit>=0.2.1', 'efel']
 )
