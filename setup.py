@@ -5,7 +5,7 @@ except ImportError:
 
 setup(
     name='DemoUnit',
-    version='0.0.5',
+    version='0.0.6',
     author='Shailesh Appukuttan, Andrew Davison',
     author_email='shailesh.appukuttan@unic.cnrs-gif.fr',
     packages=['DemoUnit',
@@ -15,5 +15,6 @@ setup(
     keywords = ['electrophysiology', 'electrical', 'testing', 'validation framework'],
     license='MIT',
     description='A SciUnit library for data-driven testing of neurons.',
-    install_requires=['sciunit>=0.2.1', 'efel']
+    install_requires=['efel',
+                      'sciunit']
 )

@@ -2,23 +2,28 @@ import efel
 import numpy
 import sciunit
 import DemoUnit.capabilities as cap
+from typing import Dict, Optional
 
 #===============================================================================
 
 class RestingPotential(sciunit.Test):
     """Test the cell's resting membrane potential"""
-    score_type = sciunit.scores.ZScore
-    description = ("Test the cell's resting membrane potential")
+
+    score_type: sciunit.scores = sciunit.scores.ZScore
+    """specifies the type of score returned by the test"""
+
+    description: str = ("Test the cell's resting membrane potential")
+    """brief description of the test objective"""
 
     def __init__(self,
-                 observation={'mean':None,'std':None},
-                 name="Resting Membrane Potential Test"):
+                 observation: Dict[str, float] = {'mean': None, 'std': None},
+                 name: str = "Resting Membrane Potential Test") -> None:
         self.required_capabilities += (cap.SomaProducesMembranePotential,)
         sciunit.Test.__init__(self, observation, name)
 
     #----------------------------------------------------------------------
 
-    def validate_observation(self, observation):
+    def validate_observation(self, observation: Dict[str, float]) -> None:
         try:
             assert len(observation.keys()) == 2
             for key, val in observation.items():
@@ -31,14 +36,14 @@ class RestingPotential(sciunit.Test):
 
     #----------------------------------------------------------------------
 
-    def generate_prediction(self, model, verbose=False):
+    def generate_prediction(self, model: sciunit.Model, verbose: bool = False) -> float:
         trace = model.get_soma_membrane_potential(tstop=50.0)
         prediction = numpy.median(trace[1])
         return prediction
 
     #----------------------------------------------------------------------
 
-    def compute_score(self, observation, prediction, verbose=False):
+    def compute_score(self, observation: Dict[str, float], prediction: float, verbose: bool = False) -> sciunit.scores.ZScore:
         # print ("observation = {}".format(observation))
         # print ("prediction = {}".format(prediction))
         score = sciunit.scores.ZScore.compute(observation, prediction)
@@ -49,18 +54,22 @@ class RestingPotential(sciunit.Test):
 
 class InputResistance(sciunit.Test):
     """Test the cell's input resistance"""
-    score_type = sciunit.scores.ZScore
+
+    score_type: sciunit.scores = sciunit.scores.ZScore
+    """specifies the type of score returned by the test"""
+
     description = ("Test the cell's input resistance")
+    """brief description of the test objective"""
 
     def __init__(self,
-                 observation={'mean':None,'std':None},
-                 name="Input Resistance Test"):
+                 observation: Dict[str, float] = {'mean': None, 'std': None},
+                 name: str = "Input Resistance Test") -> None:
         self.required_capabilities += (cap.SomaReceivesStepCurrent, cap.SomaProducesMembranePotential)
         sciunit.Test.__init__(self, observation, name)
 
     #----------------------------------------------------------------------
 
-    def validate_observation(self, observation):
+    def validate_observation(self, observation: Dict[str, float]) -> None:
         try:
             assert len(observation.keys()) == 2
             for key, val in observation.items():
@@ -73,7 +82,7 @@ class InputResistance(sciunit.Test):
 
     #----------------------------------------------------------------------
 
-    def generate_prediction(self, model, verbose=False):
+    def generate_prediction(self, model: sciunit.Model, verbose: bool = False) -> float:
         efel.reset()
         stim_start = 10.0   # ms
         stim_dur   = 50.0   # ms
@@ -90,7 +99,7 @@ class InputResistance(sciunit.Test):
 
     #----------------------------------------------------------------------
 
-    def compute_score(self, observation, prediction, verbose=False):
+    def compute_score(self, observation: Dict[str, float], prediction: float, verbose: bool = False) -> sciunit.scores.ZScore:
         # print ("observation = {}".format(observation))
         # print ("prediction = {}".format(prediction))
         score = sciunit.scores.ZScore.compute(observation, prediction)
@@ -100,18 +109,22 @@ class InputResistance(sciunit.Test):
 
 class AP_Height(sciunit.Test):
     """Test the cell's AP height"""
-    score_type = sciunit.scores.ZScore
+
+    score_type: sciunit.scores = sciunit.scores.ZScore
+    """specifies the type of score returned by the test"""
+
     description = ("Test the cell's AP height")
+    """brief description of the test objective"""
 
     def __init__(self,
-                 observation={'mean':None,'std':None},
-                 name="Action Potential Height Test"):
+                 observation: Dict[str, float] = {'mean': None, 'std': None},
+                 name: str = "Action Potential Height Test") -> None:
         self.required_capabilities += (cap.SomaReceivesStepCurrent, cap.SomaProducesMembranePotential)
         sciunit.Test.__init__(self, observation, name)
 
     #----------------------------------------------------------------------
 
-    def validate_observation(self, observation):
+    def validate_observation(self, observation: Dict[str, float]) -> None:
         try:
             assert len(observation.keys()) == 2
             for key, val in observation.items():
@@ -124,7 +137,7 @@ class AP_Height(sciunit.Test):
 
     #----------------------------------------------------------------------
 
-    def generate_prediction(self, model, verbose=False):
+    def generate_prediction(self, model: sciunit.Model, verbose: bool = False) -> Optional[float]:
         efel.reset()
         stim_start = 10.0   # ms
         stim_dur   = 5.0    # ms
@@ -142,9 +155,7 @@ class AP_Height(sciunit.Test):
 
     #----------------------------------------------------------------------
 
-    def compute_score(self, observation, prediction, verbose=False):
-        # print ("observation = {}".format(observation))
-        # print ("prediction = {}".format(prediction))
+    def compute_score(self, observation: Dict[str, float], prediction: Optional[float], verbose: bool = False) -> sciunit.scores.ZScore:
         if isinstance(prediction, type(None)):
             # score = sciunit.scores.InsufficientDataScore(None)
             score = sciunit.scores.ZScore(9999.99)
@@ -157,18 +168,22 @@ class AP_Height(sciunit.Test):
 
 class AP_HalfWidth(sciunit.Test):
     """Test the cell's AP half-width"""
-    score_type = sciunit.scores.ZScore
+
+    score_type: sciunit.scores = sciunit.scores.ZScore
+    """specifies the type of score returned by the test"""
+
     description = ("Test the cell's AP half-width")
+    """brief description of the test objective"""
 
     def __init__(self,
-                 observation={'mean':None,'std':None},
-                 name="Action Potential Half-Width Test"):
+                 observation: Dict[str, float] = {'mean': None, 'std': None},
+                 name: str = "Action Potential Half-Width Test") -> None:
         self.required_capabilities += (cap.SomaReceivesStepCurrent, cap.SomaProducesMembranePotential)
         sciunit.Test.__init__(self, observation, name)
 
     #----------------------------------------------------------------------
 
-    def validate_observation(self, observation):
+    def validate_observation(self, observation: Dict[str, float]) -> None:
         try:
             assert len(observation.keys()) == 2
             for key, val in observation.items():
@@ -181,7 +196,7 @@ class AP_HalfWidth(sciunit.Test):
 
     #----------------------------------------------------------------------
 
-    def generate_prediction(self, model, verbose=False):
+    def generate_prediction(self, model: sciunit.Model, verbose: bool = False) -> Optional[float]:
         efel.reset()
         stim_start = 10.0   # ms
         stim_dur   = 5.0    # ms
@@ -199,9 +214,7 @@ class AP_HalfWidth(sciunit.Test):
 
     #----------------------------------------------------------------------
 
-    def compute_score(self, observation, prediction, verbose=False):
-        # print ("observation = {}".format(observation))
-        # print ("prediction = {}".format(prediction))
+    def compute_score(self, observation: Dict[str, float], prediction: Optional[float], verbose: bool = False) -> sciunit.scores.ZScore:
         if isinstance(prediction, type(None)):
             # score = sciunit.scores.InsufficientDataScore(None)
             score = sciunit.scores.ZScore(9999.99)

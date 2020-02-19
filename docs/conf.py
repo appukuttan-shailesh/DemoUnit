@@ -36,7 +36,8 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
-    'sphinx_automodapi.automodapi'
+    'sphinx_automodapi.automodapi',
+    'sphinx_autodoc_typehints'
 ]
 
 autodoc_default_options = {
@@ -354,6 +355,10 @@ texinfo_documents = [
 #
 # texinfo_no_detailmenu = False
 
+# Type hints
+typehints_fully_qualified = True
+always_document_param_types = True
+
 autodoc_member_order = 'bysource'
 
 html_css_files = [
@@ -409,3 +414,9 @@ html_context = {
 }
 
 # ----------------------------------------------------------------------------
+
+from DemoUnit.capabilities import SomaProducesMembranePotential
+print(SomaProducesMembranePotential.get_soma_membrane_potential.__doc__)
+
+from sciunit.base import DocsMetaClass
+print(inspect.getsource(DocsMetaClass))
